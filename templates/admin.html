@@ -24,19 +24,64 @@
   <!-- font awesome style -->
   <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
   <!-- nice select -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0//static/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
 
   <!-- Custom styles for this template -->
   <link href="/static/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="/static/css/responsive.css" rel="stylesheet" />
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
 
+th, td {
+    border: 1px solid #000; /* Black border lines */
+    text-align: left;
+    padding: 8px;
+    color: blue; /* Blue text color */
+}
+
+  .card {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 20px;
+            overflow: hidden;
+            border-radius: 10px;
+            float: left; /* Arrange cards in a row */
+        }
+
+        /* Define the image as the background */
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Define the text overlay */
+        .card-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+</style>
 </head>
 
-<body class="sub_page">
+<body>
 
- {% include "base.html" %}   <!-- end header section -->
-  </div>
+  <div class="hero_area">
+    <!-- header section strats -->
+   {% include "base.html" %} <!-- end header section -->
+    <!-- slider section -->
+
 
   <!-- about section -->
 
@@ -46,26 +91,36 @@
         <div class="col-md-6">
           <div class="detail-box">
             <div class="heading_container">
-              <h2>
-                About Event Scheduling Management System
-              </h2>
-            </div>
-            <p>
-At Event Scheduling Management System, we understand that planning and managing events can be a daunting task. Whether you're organizing a business conference, a wedding, a school reunion, or any other event, our platform is designed to streamline the entire process.
-            </p>
+                <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date</th>
+            <th>Centre</th>
+          <th>Edit Button</th>
+        </tr>
+                   {% for a in data %}
+        <tr>
+            <td>{{ a.name }}</td>
+            <td>{{ a.email }}</td>
+            <td>{{ a.date }}</td>
+            <td>{{ a.Centre }}</td>
+            <td><a href="{{ url_for('edit', id=a.id) }}"></a> </td>
+        </tr>
+       {% endfor %}
+        <!-- Add more rows as needed -->
+    </table>
 
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="img-box">
-            <img src="/static/images/about-img.jpg" alt="">
-          </div>
+
         </div>
       </div>
     </div>
   </section>
 
   <!-- end about section -->
+
+
+  <!-- end expert section -->
 
   <!-- info section -->
   <section class="info_section ">
@@ -76,12 +131,12 @@ At Event Scheduling Management System, we understand that planning and managing 
             Menu
           </h4>
           <ul>
-            <li>
+            <li class="active">
               <a href="index.html">
                 Home
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="about.html">
                 About
               </a>
@@ -158,6 +213,7 @@ At Event Scheduling Management System, we understand that planning and managing 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0//static/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
   <!-- custom js -->
   <script src="/static/js/custom.js"></script>
+
 
 </body>
 

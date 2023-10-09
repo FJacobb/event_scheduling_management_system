@@ -1,0 +1,59 @@
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{{ url_for('index') }}">
+            <span>
+              ESMS
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+
+              {% if not login.is_authenticated %}
+        <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span>
+                    Login
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('signup') }}">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span>
+                    Sign Up
+                  </span>
+                </a>
+              </li>
+          {% endif %}
+        {% if login.is_authenticated %}
+                <li class="nav-item ">
+                <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}"> About</a>
+              </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+          </li>
+    {% endif %}
+              <form class="form-inline">
+                <button class="btn   nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>

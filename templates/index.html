@@ -30,62 +30,43 @@
   <link href="/static/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="/static/css/responsive.css" rel="stylesheet" />
+<style>
+  .card {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 20px;
+            overflow: hidden;
+            border-radius: 10px;
+            float: left; /* Arrange cards in a row */
+        }
 
+        /* Define the image as the background */
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Define the text overlay */
+        .card-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+</style>
 </head>
 
 <body>
 
   <div class="hero_area">
     <!-- header section strats -->
-    <header class="header_section">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="{{url_for('index')}}">
-            <span>
-              ESMS
-            </span>
-          </a>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('index')}}">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url_for('about')}}"> About</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="{{url_for('login')}}">
-                  <i class="fa fa-user" aria-hidden="true"></i>
-                  <span>
-                    Login
-                  </span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url_for('signup')}}">
-                  <i class="fa fa-user" aria-hidden="true"></i>
-                  <span>
-                    Sign Up
-                  </span>
-                </a>
-              </li>
-              <form class="form-inline">
-                <button class="btn   nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
+   {% include "base.html" %} <!-- end header section -->
     <!-- slider section -->
     <section class="slider_section ">
       <div class="container ">
@@ -96,8 +77,7 @@
                Welcome to <br> Event Scheduling Management System
               </h1>
               <p>
-                Are you tired of the hassle of organizing events, managing schedules, and coordinating with participants?
-                Look no further! Our Event Scheduling Management System is here to simplify your event planning process.
+
               </p>
             </div>
           </div>
@@ -106,33 +86,7 @@
           <div class="container">
             <div class="row">
               <div class="col">
-                <form>
-                  <div class="form-row ">
-                    <div class="form-group col-lg-2">
-                      <input type="email" class="form-control" id="inputPatientName" placeholder="Email" required>
-                    </div>
-                    <div class="form-group col-lg-2">
-                      <input type="text" class="form-control"  id="inputDoctorName" placeholder="Name" required>
-                    </div>
-                    <div class="form-group col-lg-2">
-                       <input type="date" class="form-control"  name="event_date" required>
-                    </div>
-                     <div class="form-group col-lg-2">
-                      <select name="" class="form-control wide" id="inputDepartmentName">
-                        <option value="Normal distribution ">Amoa Hall</option>
-                        <option value="Normal distribution ">Alfa Hall</option>
-                        <option value="Normal distribution ">Mosugu Hall</option>
-                        <option value="Normal distribution ">Yisa Yoko Hall</option>
-                      </select>
-                      </div>
-                    <div class="form-group col-lg-3">
-                      <div class="btn-box">
-                        <button type="submit" class="btn ">Submit Now</button>
-                      </div>
-                    </div>
 
-                  </div>
-                </form>
               </div>
             </div>
           </div>
@@ -181,30 +135,30 @@
       </div>
       <div class="job_container">
         <h4 class="job_heading">
-          Featured Subscription
+          Featured Centre
         </h4>
         <div class="row">
           <div class="col-lg-6">
             <div class="box">
               <div class="job_content-box">
                 <div class="img-box">
-                  <img src="/static/images/job_logo1.png" alt="">
+                  <img src="https://www.finelib.com/images/listings/tn/50170_company_logo.JPG" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Basic Organizer
+                    Admiralty Suites
                   </h5>
                   <div class="detail-info">
                     <h6>
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
                       <span>
-                        Nigeria
+                        Nigeria, Kaduna
                       </span>
                     </h6>
                     <h6>
                       <i class="fa fa-money" aria-hidden="true"></i>
                       <span>
-                       Free
+                       Custom Pricing
                       </span>
                     </h6>
                   </div>
@@ -214,8 +168,8 @@
                 <button class="fav-btn">
                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </button>
-                <a href="" class="apply-btn">
-                  Apply Now
+                <a href="{{ url_for('book') }}" class="apply-btn">
+                  Book
                 </a>
               </div>
             </div>
@@ -224,23 +178,23 @@
             <div class="box">
               <div class="job_content-box">
                 <div class="img-box">
-                  <img src="/static/images/job_logo2.png" alt="">
+                  <img src="https://www.finelib.com/images/listings/tn/50176_company_logo.JPG" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                     Event Organizer Plus
+                     Aguyilo Multi Purpose Centre
                   </h5>
                   <div class="detail-info">
                     <h6>
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
                       <span>
-                        Nigeria
+                        Nigeria, Kaduna
                       </span>
                     </h6>
                     <h6>
                       <i class="fa fa-money" aria-hidden="true"></i>
                       <span>
-                        $19.99 per month
+                        Custom Pricing
                       </span>
                     </h6>
                   </div>
@@ -250,8 +204,8 @@
                 <button class="fav-btn">
                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </button>
-                <a href="" class="apply-btn">
-                  Apply Now
+                <a href="{{ url_for('book') }}" class="apply-btn">
+                  Book
                 </a>
               </div>
             </div>
@@ -260,30 +214,30 @@
       </div>
       <div class="job_container">
         <h4 class="job_heading">
-          Recent Jobs
+          Recent Centre
         </h4>
         <div class="row">
           <div class="col-lg-6">
             <div class="box">
               <div class="job_content-box">
                 <div class="img-box">
-                  <img src="/static/images/job_logo3.png" alt="">
+                  <img src="https://www.finelib.com/images/listings/tn/47652_company_logo.JPG" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Event Organizer Lite
+                    Aspire Hall
                   </h5>
                   <div class="detail-info">
                     <h6>
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
                       <span>
-                        Nigeria
+                        Nigeria, Kaduna
                       </span>
                     </h6>
                     <h6>
                       <i class="fa fa-money" aria-hidden="true"></i>
                       <span>
-                        $9.99 per month
+                        Custom Pricing
                       </span>
                     </h6>
                   </div>
@@ -293,8 +247,8 @@
                 <button class="fav-btn">
                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </button>
-                <a href="" class="apply-btn">
-                  Apply Now
+                <a href="{{ url_for('book') }}" class="apply-btn">
+                  Book
                 </a>
               </div>
             </div>
@@ -303,23 +257,23 @@
             <div class="box">
               <div class="job_content-box">
                 <div class="img-box">
-                  <img src="/static/images/job_logo6.png" alt="">
+                  <img src="https://www.finelib.com/images/listings/tn/85172_company_logo.JPG" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                     Event Essentials
+                     BigCity Event Centre
                   </h5>
                   <div class="detail-info">
                     <h6>
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
                       <span>
-                        Nigeria
+                        Nigeria, Kaduna
                       </span>
                     </h6>
                     <h6>
                       <i class="fa fa-money" aria-hidden="true"></i>
                       <span>
-                        $4.99 per month
+                        Custom Pricing
                       </span>
                     </h6>
                   </div>
@@ -329,8 +283,8 @@
                 <button class="fav-btn">
                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </button>
-                <a href="" class="apply-btn">
-                  Apply Now
+                <a href="{{ url_for('book') }}" class="apply-btn">
+                  Book
                 </a>
               </div>
             </div>
@@ -339,39 +293,75 @@
             <div class="box">
               <div class="job_content-box">
                 <div class="img-box">
-                  <img src="/static/images/job_logo5.png" alt="">
+                  <img src="https://www.finelib.com/images/listings/tn/50167_company_logo.JPG" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                   Event Enterprise
+                   Ceremonial Canopies Event Center
                   </h5>
                   <div class="detail-info">
                     <h6>
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
                       <span>
-                        Nigeria
+                        Nigeria, Kaduna
                       </span>
                     </h6>
                     <h6>
                       <i class="fa fa-money" aria-hidden="true"></i>
                       <span>
-                        Custom Pricing (Contact Sales)
+                        Custom Pricing
                       </span>
                     </h6>
                   </div>
                 </div>
               </div>
-              <div class="option-box">
+               <div class="option-box">
                 <button class="fav-btn">
                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </button>
-                <a href="" class="apply-btn">
-                  Apply Now
+                <a href="{{ url_for('book') }}" class="apply-btn">
+                  Book
                 </a>
               </div>
-            </div>
-          </div>
+
         </div>
+      </div>
+           <div class="col-lg-6">
+            <div class="box">
+              <div class="job_content-box">
+                <div class="img-box">
+                  <img src="https://www.finelib.com/images/listings/tn/50180_company_logo.JPG" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                   Daahkole Angels Multipurpose Event Center
+                  </h5>
+                  <div class="detail-info">
+                    <h6>
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      <span>
+                        Nigeria, Kaduna
+                      </span>
+                    </h6>
+                    <h6>
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                      <span>
+                        Custom Pricing
+                      </span>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+ <div class="option-box">
+                <button class="fav-btn">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </button>
+                <a href="{{ url_for('book') }}" class="apply-btn">
+                  Book
+                </a>
+              </div>
+        </div>
+
       </div>
     </div>
   </section>

@@ -24,110 +24,103 @@
   <!-- font awesome style -->
   <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
   <!-- nice select -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0//static/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
 
   <!-- Custom styles for this template -->
   <link href="/static/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="/static/css/responsive.css" rel="stylesheet" />
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
 
+th, td {
+    border: 1px solid #000; /* Black border lines */
+    text-align: left;
+    padding: 8px;
+    color: blue; /* Blue text color */
+}
+
+  .card {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 20px;
+            overflow: hidden;
+            border-radius: 10px;
+            float: left; /* Arrange cards in a row */
+        }
+
+        /* Define the image as the background */
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Define the text overlay */
+        .card-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+</style>
 </head>
 
-<body class="sub_page">
+<body>
 
-{% include "base.html" %}
+  <div class="hero_area">
+    <!-- header section strats -->
+   {% include "base.html" %} <!-- end header section -->
+    <!-- slider section -->
 
-  <!-- expert section -->
 
-  <section class="expert_section layout_padding">
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
     <div class="container">
       <div class="row">
-
-        <div class="col-md-4 col-lg-4 mx-auto"  >
-          <a href="{{url_for('login')}}">
-          <div class="box" disabled="true">
-            <div class="img-box">
-              <img src="/static/images/e1.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h2>
-                Log-in
-                </h2>
-    <div class="find_container ">
-              <div class="container">
-                <div class="row">
-                  <div class="col">
-                    <form>
-                      <div class="form-row ">
-                        <div class="form-group col-lg-12">
-                          <input type="email"  class="form-control" placeholder="Email" required>
-                        </div>
-
-                        <div class="form-group col-lg-12">
-                          <input type="password"  class="form-control"  placeholder="Name" required>
-                        </div>
-                        <div class="form-group col-lg-12">
-                          <div class="btn-box btn btn-danger">
-                            <button type="submit" class="btn">Login</button>
-                          </div>
-                        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <form action="{{url_for('edit', id=post.id)}}" method="post">
+                  <div class="form-row ">
+                    <div class="form-group col-lg-6">
+                      <input type="email" class="form-control" name="email" id="inputPatientName" value="{{post.email}}" style="display:block" required>
+                    </div>
+                    <div class="form-group col-lg-6">
+                      <input type="text" class="form-control" name="name"  id="inputDoctorName" value="{{post.name}}" style="display:block" required>
+                    </div>
+                    <div class="form-group col-lg-4">
+                       <input type="date" class="form-control"  name="event_date" value="{{post.date}}" required>
+                    </div>
 
                       </div>
-                    </form>
-                  </div>
-                </div>
-                </a>
-              </div>
-
-        </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-6 mx-auto">
-          <div class="box">
-            <div class="img-box">
-              <img src="/static/images/e3.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h2>
-                Sign Up
-              </h2>
-
-
-              <div class="find_container ">
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <form action="{{url_for('signup')}}" method="post">
-                  <div class="form-row ">
                     <div class="form-group col-lg-12">
-                      <input type="email" name="email" class="form-control"  placeholder="Email" required>
-                    </div>
-                     <div class="form-group col-lg-12">
-                          <input type="text" name="name" class="form-control" placeholder="Name" required>
-                        </div>
-                    <div class="form-group col-lg-12">
-                      <input type="password" class="form-control" name="password"  placeholder="Password" required>
-                    </div>
-                    <div class="form-group col-lg-12">
-                      <div class="btn-box btn btn-danger">
-                        <button type="submit" class="btn">Sign Up</button>
+                      <div class="btn-bo2x">
+                        <button type="submit" class="btn btn-light">Submit Now</button>
                       </div>
                     </div>
 
                   </div>
                 </form>
-              </div>
-            </div>
-          </div>
-        </div>
-            </div>
-          </div>
+
+
         </div>
       </div>
     </div>
   </section>
+
+  <!-- end about section -->
+
 
   <!-- end expert section -->
 
@@ -140,7 +133,7 @@
             Menu
           </h4>
           <ul>
-            <li>
+            <li class="active">
               <a href="index.html">
                 Home
               </a>
@@ -150,10 +143,10 @@
                 About
               </a>
             </li>
-
           </ul>
         </div>
         <div class="col-md-3">
+
         </div>
         <div class="col-md-3">
           <div class="info_social">
@@ -202,6 +195,7 @@
   </section>
   <!-- end info_section -->
 
+
   <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
@@ -218,7 +212,7 @@
   <!-- bootstrap js -->
   <script src="/static/js/bootstrap.js"></script>
   <!-- nice select -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0//static/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
   <!-- custom js -->
   <script src="/static/js/custom.js"></script>
 
