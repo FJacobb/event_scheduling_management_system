@@ -88,8 +88,9 @@ th, td {
   <section class="about_section layout_padding">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="detail-box">
+            <h2>Edit Book</h2>
             <div class="heading_container">
               <form action="{{url_for('edit', id=post.id)}}" method="post">
                   <div class="form-row ">
@@ -103,6 +104,23 @@ th, td {
                        <input type="date" class="form-control"  name="event_date" value="{{post.date}}" required>
                     </div>
 
+                      </div>
+                 <div class="form-group col-lg-6">
+                      <select name="Centre" class="form-control wide centre" id="inputDepartmentName"  size="5">
+                                 <option value="Admiralty Suites (Capacity: 100-500)">Admiralty Suites (Capacity: 100-500)</option>
+            <option value="Aguyilo Multi Purpose Centre (Capacity: 150-800)">Aguyilo Multi Purpose Centre (Capacity: 150-800)</option>
+            <option value="Aspire Hall (Capacity: 80-300)">Aspire Hall (Capacity: 80-300)</option>
+            <option value="BigCity Event Centre (Capacity: 200-1000)">BigCity Event Centre (Capacity: 200-1000)</option>
+            <option value="Ceremonial Canopies Event Center (Capacity: 120-600)">Ceremonial Canopies Event Center (Capacity: 120-600)</option>
+            <option value="Daahkole Angels Multipurpose Event Center (Capacity: 180-900)">Daahkole Angels Multipurpose Event Center (Capacity: 180-900)</option>
+            <option value="Elegance Events Hall (Capacity: 90-450)">Elegance Events Hall (Capacity: 90-450)</option>
+            <option value="Fountain Grand Hall (Capacity: 250-1250)">Fountain Grand Hall (Capacity: 250-1250)</option>
+            <option value="Golden Palace Banquet Hall (Capacity: 160-800)">Golden Palace Banquet Hall (Capacity: 160-800)</option>
+            <option value="Harmony Hall (Capacity: 110-550)">Harmony Hall (Capacity: 110-550)</option>
+            <option value="Imperial Hall (Capacity: 130-650)">Imperial Hall (Capacity: 130-650)</option>
+            <option value="Jubilee Banquet Hall (Capacity: 220-1100)">Jubilee Banquet Hall (Capacity: 220-1100)</option>
+
+                      </select>
                       </div>
                     <div class="form-group col-lg-12">
                       <div class="btn-bo2x">
